@@ -11,11 +11,12 @@ import { appTheme } from './common';
 import * as S from './app.styled';
 import { AppRoute } from 'const/const';
 import NotFound from 'components/not-found/not-found';
+import browserHistory from 'browser-history/browser-history';
 
 const App = () => (
   <ThemeProvider theme={appTheme}>
     <S.GlobalStyle />
-    <Router>
+    <Router history={browserHistory}>
       <Switch>
         <Route exact path={AppRoute.ROOT}>
           <Home />

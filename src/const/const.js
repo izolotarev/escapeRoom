@@ -5,6 +5,17 @@ export const AppRoute = {
   NOT_FOUND: '/not-found',
 };
 
+export const PageName = {
+  QUESTS: 'Квесты',
+  NEWBIES: 'Новичкам',
+  REVIEWS: 'Отзывы',
+  PROMO: 'Акции',
+  CONTACTS: 'Контакты',
+};
+
+export const PHONE_NUMBER = '8 (800) 333-55-99';
+export const PHONE_NUMBER_LINK = 'tel:88003335599';
+
 export const APIRoute = {
   OFFERS: '/hotels',
   LOGIN: '/login',
@@ -20,7 +31,6 @@ export const genres = {
   MYSTIC: 'Мистика',
   DETECTIVE: 'Детектив',
   SCIFI: 'Sci-fi',
-}
+};
 
 
-// export const genres = ['Все квесты', 'Приключения', 'Ужасы', 'Мистика', 'Детектив', 'Sci-fi']
