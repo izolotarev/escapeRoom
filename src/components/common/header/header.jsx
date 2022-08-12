@@ -1,12 +1,24 @@
 import logo from 'assets/img/logo.svg';
 import { AppRoute, PageName, PHONE_NUMBER, PHONE_NUMBER_LINK } from 'const/const';
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { selectPage } from 'store/action-creators/actions';
 import { getSelectedPage } from 'store/reducers/global/app-global-selectors';
 import * as S from './header.styled';
 
 const Header = () => {
   const selectedPage = useSelector(getSelectedPage);
 
+  const dispatch = useDispatch();
+
+  const handlePageClick = (evt) => {
+    const input = evt.target;
+    const page = input.textContent;
+
+    if (page) {
+      dispatch(selectPage(input.textContent));
+    }
+  }
 
   return (
     <S.StyledHeader>
@@ -18,25 +30,53 @@ const Header = () => {
         <S.Navigation>
           <S.Links>
             <S.LinkItem>
-              <S.Link $isActiveLink to={AppRoute.ROOT}>
+              <S.Link
+                $isActiveLink = { selectedPage === PageName.QUESTS }
+                to={AppRoute.ROOT}
+                onClick={handlePageClick}
+              >
                 {PageName.QUESTS}
               </S.Link>
             </S.LinkItem>
 
             <S.LinkItem>
-              <S.Link to="#">{PageName.NEWBIES}</S.Link>
+              <S.Link
+                $isActiveLink = { selectedPage === PageName.NEWBIES }
+                to="#"
+                onClick={handlePageClick}
+              >
+                {PageName.NEWBIES}
+              </S.Link>
             </S.LinkItem>
 
             <S.LinkItem>
-              <S.Link to="#">{PageName.REVIEWS}</S.Link>
+              <S.Link
+                $isActiveLink = { selectedPage === PageName.REVIEWS }
+                to="#"
+                onClick={handlePageClick}
+              >
+                {PageName.REVIEWS}
+              </S.Link>
             </S.LinkItem>
 
             <S.LinkItem>
-              <S.Link to="#">{PageName.PROMO}</S.Link>
+              <S.Link
+                $isActiveLink = { selectedPage === PageName.PROMO }
+                to="#"
+                onClick={handlePageClick}
+              >
+                {PageName.PROMO}
+              </S.Link>
             </S.LinkItem>
 
             <S.LinkItem>
-              <S.Link to={AppRoute.CONTACTS}>{PageName.CONTACTS}</S.Link>
+              <S.Link
+                $isActiveLink = { selectedPage === PageName.CONTACTS }
+                to={AppRoute.CONTACTS}
+                onClick={handlePageClick}
+              >
+                {PageName.CONTACTS}
+              </S.Link>
             </S.LinkItem>
           </S.Links>
         </S.Navigation>

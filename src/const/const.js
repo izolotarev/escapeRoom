@@ -17,11 +17,7 @@ export const PHONE_NUMBER = '8 (800) 333-55-99';
 export const PHONE_NUMBER_LINK = 'tel:88003335599';
 
 export const APIRoute = {
-  OFFERS: '/hotels',
-  LOGIN: '/login',
-  LOGOUT: '/logout',
-  REVIEWS: '/comments',
-  FAVORITE: '/favorite',
+  QUESTS: '/quests',
 };
 
 export const genres = {
@@ -33,4 +29,16 @@ export const genres = {
   SCIFI: 'Sci-fi',
 };
 
+export const questTypeFromServer = {
+  'horror' : genres.HORROR,
+  'mystic' : genres.MYSTIC,
+  'detective' : genres.DETECTIVE,
+  'adventures' : genres.ADVENTURES,
+  'sci-fi' : genres.SCIFI,
+};
 
+export const levelFromServer = {
+  'hard':'сложный',
+  'medium':'средний',
+  'easy': 'простой'
+};

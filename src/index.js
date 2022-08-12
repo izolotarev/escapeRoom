@@ -8,6 +8,9 @@ import {configureStore} from '@reduxjs/toolkit';
 import rootReducer from 'store/reducers/root-reducer';
 import { redirect } from 'store/middlewares/redirect';
 import { Provider } from 'react-redux';
+import { Router as BrowserRouter } from 'components/common/common';
+import browserHistory from 'browser-history/browser-history';
+import { fetchQuests } from 'store/api-actions';
 
 const api = createAPI();
 
@@ -21,11 +24,15 @@ const store = configureStore({
     }).concat(redirect)
 });
 
+store.dispatch(fetchQuests());
+
 render(
   <StrictMode>
     <Provider store={store}>
-      <ToastContainer/>
-      <App />
+      <BrowserRouter history={browserHistory}>
+        <ToastContainer/>
+        <App />
+      </BrowserRouter>
     </Provider>
   </StrictMode>,
   document.getElementById('root'),
