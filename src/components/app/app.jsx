@@ -26,20 +26,23 @@ const App = () => {
   return (
     <ThemeProvider theme={appTheme}>
       <S.GlobalStyle />
-        <Switch>
-          <Route exact path={AppRoute.ROOT}>
-            <Home />
-          </Route>
-          <Route exact path={`${AppRoute.QUEST}/:id`}>
-            <DetailedQuest />
-          </Route>
-          <Route exact path={AppRoute.CONTACTS}>
-            <Contacts />
-          </Route>
-          <Route path={AppRoute.NOT_FOUND}>
-            <NotFound />
-          </Route>
-        </Switch>
+      <Switch>
+        <Route exact path={AppRoute.ROOT}>
+          <Home />
+        </Route>
+        <Route exact path={`${AppRoute.QUEST}/:id`}>
+          <DetailedQuest />
+        </Route>
+        <Route exact path={AppRoute.CONTACTS}>
+          <Contacts />
+        </Route>
+        <Route path={AppRoute.NOT_FOUND}>
+          <NotFound />
+        </Route>
+        <Route>
+          <NotFound />
+        </Route>
+      </Switch>
     </ThemeProvider>
   );
 };

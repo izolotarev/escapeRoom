@@ -12,13 +12,18 @@ import LoadingScreen from 'components/common/loading-screen/loading-screen';
 import { fetchQuestById } from 'store/api-actions';
 import { getQuest } from 'store/reducers/quests/quests-selectors';
 import { clearQuestById } from 'store/action-creators/actions';
+import { useCallback } from 'react';
 
 const DetailedQuest = () => {
 
   const [isBookingModalOpened, setIsBookingModalOpened] = useState(false);
 
-  const onBookingBtnClick = () => {
+  const handleOpenPopupBtnClick = () => {
     setIsBookingModalOpened(true);
+  };
+
+  const handleClosePopupBtnClick = () => {
+    setIsBookingModalOpened(false);
   };
 
   const params = useParams();
@@ -80,13 +85,13 @@ const DetailedQuest = () => {
               {description}
             </S.QuestDescription>
 
-            <S.QuestBookingBtn onClick={onBookingBtnClick}>
+            <S.QuestBookingBtn onClick={handleOpenPopupBtnClick}>
               Забронировать
             </S.QuestBookingBtn>
           </S.PageDescription>
         </S.PageContentWrapper>
 
-        {isBookingModalOpened && <BookingModal />}
+        {isBookingModalOpened && <BookingModal closePopupHandler={handleClosePopupBtnClick} />}
       </S.Main>
     </MainLayout>
   );

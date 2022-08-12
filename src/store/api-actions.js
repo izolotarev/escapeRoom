@@ -1,6 +1,6 @@
 import { APIRoute, AppRoute } from 'const/const';
 import { toast } from 'react-toastify';
-import { loadQuestById, loadQuests, redirectToRoute } from './action-creators/actions';
+import { addOrder, loadQuestById, loadQuests, redirectToRoute } from './action-creators/actions';
 
 
 export const fetchQuests = () => (dispatch, _getState, api) => (
@@ -15,4 +15,10 @@ export const fetchQuestById = (id) => (dispatch, _getState, api) => (
     .catch(() => dispatch(redirectToRoute(AppRoute.NOT_FOUND)))
 );
 
-const handleError = (err) => toast.info(err.response.data.error);
+export const sendOrder = (order) => (dispatch, _getState, api) => (
+  api.post(APIRoute.QUESTS, order)
+    .then(({data}) => dispatch(addOrder(data)))
+    .catch(handleError)
+)
+
+const handleError = (err) => toast.info(err.response);
