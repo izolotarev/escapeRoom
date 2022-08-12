@@ -46,3 +46,7 @@ export const levelFromServer = {
   'medium':'средний',
   'easy': 'простой'
 };
+
+export const INITIAL_NUMBER_OF_PEOPLE = 1;
+
+export const ERROR_MESSAGE = 'Ошибка. Не удалось загрузить данные.'

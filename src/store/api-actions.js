@@ -1,4 +1,4 @@
-import { APIRoute, AppRoute } from 'const/const';
+import { APIRoute, AppRoute, ERROR_MESSAGE } from 'const/const';
 import { toast } from 'react-toastify';
 import { addOrder, loadQuestById, loadQuests, redirectToRoute } from './action-creators/actions';
 
@@ -21,4 +21,4 @@ export const sendOrder = (order) => (dispatch, _getState, api) => (
     .catch(handleError)
 )
 
-const handleError = (err) => toast.info(err.response.messages);
+const handleError = (err) => toast.info(ERROR_MESSAGE);

@@ -4,20 +4,18 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { sendOrder } from 'store/api-actions';
-import { getOrder, getOrderPostStatus } from 'store/reducers/orders/orders-selectors';
+import { getOrderPostStatus } from 'store/reducers/orders/orders-selectors';
 import { useEffect } from 'react';
 import { clearPostOrderStatus } from 'store/action-creators/actions';
 import { toast } from 'react-toastify';
-import { PHONE_NUMBER_PATTERN, PHONE_NUMBER_PATTERN_TITLE } from 'const/const';
-
-const MIN_LENGTH = 10;
+import { INITIAL_NUMBER_OF_PEOPLE, PHONE_NUMBER_PATTERN, PHONE_NUMBER_PATTERN_TITLE } from 'const/const';
 
 const BookingModal = ({ closePopupHandler }) => {
 
   const [order, setOrder] = useState({
     name: '',
     phone: '',
-    peopleCount: 1,
+    peopleCount: INITIAL_NUMBER_OF_PEOPLE,
     isLegal: false
   });
 
@@ -32,7 +30,7 @@ const BookingModal = ({ closePopupHandler }) => {
       setOrder({
         name: '',
         phone: '',
-        peopleCount: 1,
+        peopleCount: INITIAL_NUMBER_OF_PEOPLE,
         isLegal: false
       });
       dispatch(clearPostOrderStatus());
@@ -62,7 +60,7 @@ const BookingModal = ({ closePopupHandler }) => {
     setOrder({
       name,
       phone,
-      peopleCount: evt.target.value,
+      peopleCount: parseInt(evt.target.value, 10),
       isLegal,
     });
     console.log(order);
