@@ -14,3 +14,5 @@ export const getQuestsInSelectedGenre = createSelector(getSelectedGenre, getQues
     return quests.slice().filter((quest) => quest.type === selectedGenre);
   }
 );
+
+export const getQuest = (state) => state[NameSpace.QUESTS].detailedQuest;
