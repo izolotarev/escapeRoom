@@ -8,59 +8,61 @@ import { getOrder, getOrderPostStatus } from 'store/reducers/orders/orders-selec
 import { useEffect } from 'react';
 import { clearPostOrderStatus } from 'store/action-creators/actions';
 import { toast } from 'react-toastify';
+import { PHONE_NUMBER_PATTERN, PHONE_NUMBER_PATTERN_TITLE } from 'const/const';
+
+const MIN_LENGTH = 10;
 
 const BookingModal = ({ closePopupHandler }) => {
 
   const [order, setOrder] = useState({
-    username: '',
+    name: '',
     phone: '',
-    pplCount: 1,
+    peopleCount: 1,
     isLegal: false
   });
 
-  const {username, phone, pplCount, isLegal} = order;
+  const {name, phone, peopleCount, isLegal} = order;
 
   const dispatch = useDispatch();
 
   const isPostSuccessfull = useSelector(getOrderPostStatus);
-  const lastOrder = useSelector(getOrder);
 
   useEffect(() => {
     if (isPostSuccessfull) {
       setOrder({
-        username: '',
+        name: '',
         phone: '',
-        pplCount: 1,
+        peopleCount: 1,
         isLegal: false
       });
       dispatch(clearPostOrderStatus());
-      toast.info(`Order with id: ${lastOrder.id} was created`);
+      toast.info(`Order was created`);
     }
   }, [isPostSuccessfull])
 
   const handleUsernameChange = (evt) => {
     setOrder({
-      username: evt.target.value,
+      name: evt.target.value,
       phone,
-      pplCount,
+      peopleCount,
       isLegal,
     });
   };
 
   const handlePhoneChange = (evt) => {
     setOrder({
-      username,
+      name,
       phone: evt.target.value,
-      pplCount,
+      peopleCount,
       isLegal,
     });
   };
 
-  const handlePplCountChange = (evt) => {
+  const handlePeopleCountChange = (evt) => {
     setOrder({
-      username,
+      name,
       phone,
-      pplCount: evt.target.value,
+      peopleCount: evt.target.value,
       isLegal,
     });
     console.log(order);
@@ -68,9 +70,9 @@ const BookingModal = ({ closePopupHandler }) => {
 
   const handleLegalChange = (evt) => {
     setOrder({
-      username,
+      name,
       phone,
-      pplCount,
+      peopleCount,
       isLegal: evt.target.checked,
     });
     console.log(order);
@@ -105,7 +107,7 @@ const BookingModal = ({ closePopupHandler }) => {
               placeholder="Имя"
               required
               onChange={handleUsernameChange}
-              value={username}
+              value={name}
             />
           </S.BookingField>
           <S.BookingField>
@@ -120,6 +122,8 @@ const BookingModal = ({ closePopupHandler }) => {
               required
               onChange={handlePhoneChange}
               value={phone}
+              pattern={PHONE_NUMBER_PATTERN}
+              title={PHONE_NUMBER_PATTERN_TITLE}
             />
           </S.BookingField>
           <S.BookingField>
@@ -132,8 +136,8 @@ const BookingModal = ({ closePopupHandler }) => {
               name="booking-people"
               placeholder="Количество участников"
               required
-              onChange={handlePplCountChange}
-              value={pplCount}
+              onChange={handlePeopleCountChange}
+              value={peopleCount}
             />
           </S.BookingField>
           <S.BookingSubmit type="submit">Отправить заявку</S.BookingSubmit>

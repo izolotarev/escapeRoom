@@ -7,6 +7,7 @@ export const adaptQuestToClient = (data) => {
       {
         type: adaptQuestTypeToClient(data['type']),
         level: adaptLevelToClient(data['level']),
+        peopleCount: adaptPeopleCountToClient(data['peopleCount']),
       },
   );
   return adaptedItem;
@@ -18,4 +19,8 @@ const adaptQuestTypeToClient = (type) => {
 
 const adaptLevelToClient = (level) => {
   return levelFromServer[level];
+}
+
+const adaptPeopleCountToClient = (peopleCount) => {
+  return`${peopleCount[0]}-${peopleCount[1]} чел`;
 }

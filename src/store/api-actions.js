@@ -16,9 +16,9 @@ export const fetchQuestById = (id) => (dispatch, _getState, api) => (
 );
 
 export const sendOrder = (order) => (dispatch, _getState, api) => (
-  api.post(APIRoute.QUESTS, order)
+  api.post(APIRoute.ORDERS, order)
     .then(({data}) => dispatch(addOrder(data)))
     .catch(handleError)
 )
 
-const handleError = (err) => toast.info(err.response);
+const handleError = (err) => toast.info(err.response.messages);

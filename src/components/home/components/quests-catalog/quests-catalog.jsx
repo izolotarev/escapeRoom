@@ -86,7 +86,7 @@ const QuestsCatalog = () => {
                     <S.QuestFeatures>
                       <S.QuestFeatureItem>
                         <IconPerson />
-                        {`${peopleCount[0]}-${peopleCount[1]} чел`}
+                        {peopleCount}
                       </S.QuestFeatureItem>
                       <S.QuestFeatureItem>
                         <IconPuzzle />

@@ -16,8 +16,12 @@ export const PageName = {
 export const PHONE_NUMBER = '8 (800) 333-55-99';
 export const PHONE_NUMBER_LINK = 'tel:88003335599';
 
+export const PHONE_NUMBER_PATTERN = '.{10,10}';
+export const PHONE_NUMBER_PATTERN_TITLE = '10 characters length';
+
 export const APIRoute = {
   QUESTS: '/quests',
+  ORDERS: '/orders',
 };
 
 export const genres = {

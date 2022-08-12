@@ -37,11 +37,7 @@ export const loadQuestById = createAction(ActionType.LOAD_QUEST_BY_ID, (quest) =
 
 export const clearQuestById = createAction(ActionType.CLEAR_QUEST_BY_ID);
 
-export const addOrder = createAction(ActionType.POST_ORDER, (order) => {
-  return {
-    payload: order,
-  }
-});
+export const addOrder = createAction(ActionType.POST_ORDER);
 
 export const clearPostOrderStatus = createAction(ActionType.CLEAR_POST_ORDER_STATUS);
 
