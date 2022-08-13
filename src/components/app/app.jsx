@@ -13,6 +13,7 @@ import NotFound from 'components/not-found/not-found';
 import { useSelector } from 'react-redux';
 import { getQuestsLoadedStatus } from 'store/reducers/quests/quests-selectors';
 import LoadingScreen from 'components/common/loading-screen/loading-screen';
+import WipPage from 'components/wip-page/wip-page';
 
 const App = () => {
   const questsLoaded = useSelector(getQuestsLoadedStatus);
@@ -35,6 +36,15 @@ const App = () => {
         </Route>
         <Route exact path={AppRoute.CONTACTS}>
           <Contacts />
+        </Route>
+        <Route path={AppRoute.NEWBIES}>
+          <WipPage />
+        </Route>
+        <Route path={AppRoute.REVIEWS}>
+          <WipPage />
+        </Route>
+        <Route path={AppRoute.PROMO}>
+          <WipPage />
         </Route>
         <Route path={AppRoute.NOT_FOUND}>
           <NotFound />

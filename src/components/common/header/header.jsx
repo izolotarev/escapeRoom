@@ -42,7 +42,7 @@ const Header = () => {
             <S.LinkItem>
               <S.Link
                 $isActiveLink = { selectedPage === PageName.NEWBIES }
-                to="#"
+                to={AppRoute.NEWBIES}
                 onClick={handlePageClick}
               >
                 {PageName.NEWBIES}
@@ -52,7 +52,7 @@ const Header = () => {
             <S.LinkItem>
               <S.Link
                 $isActiveLink = { selectedPage === PageName.REVIEWS }
-                to="#"
+                to={AppRoute.REVIEWS}
                 onClick={handlePageClick}
               >
                 {PageName.REVIEWS}
@@ -62,7 +62,7 @@ const Header = () => {
             <S.LinkItem>
               <S.Link
                 $isActiveLink = { selectedPage === PageName.PROMO }
-                to="#"
+                to={AppRoute.PROMO}
                 onClick={handlePageClick}
               >
                 {PageName.PROMO}

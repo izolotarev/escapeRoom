@@ -3,6 +3,9 @@ export const AppRoute = {
   QUEST: '/quest',
   CONTACTS: '/contacts',
   NOT_FOUND: '/not-found',
+  NEWBIES: '/newbies',
+  REVIEWS: '/reviews',
+  PROMO: '/promo',
 };
 
 export const PageName = {
