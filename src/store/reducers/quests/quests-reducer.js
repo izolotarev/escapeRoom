@@ -1,10 +1,10 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { genres } from 'const/const';
+import { Genres } from 'const/const';
 import { clearQuestById, loadQuestById, loadQuests, selectGenre } from 'store/action-creators/actions';
 import { adaptQuestToClient } from 'utils/utils';
 
 export const initialState = {
-  selectedGenre: genres.ALL,
+  selectedGenre: Genres.ALL,
   quests: [],
   questsLoaded: false,
   detailedQuest: undefined,

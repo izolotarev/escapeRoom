@@ -30,7 +30,7 @@ export const APIRoute = {
   ORDERS: '/orders',
 };
 
-export const genres = {
+export const Genres = {
   ALL: 'Все квесты',
   ADVENTURES: 'Приключения',
   HORROR: 'Ужасы',
@@ -39,15 +39,15 @@ export const genres = {
   SCIFI: 'Sci-fi',
 };
 
-export const questTypeFromServer = {
-  'horror' : genres.HORROR,
-  'mystic' : genres.MYSTIC,
-  'detective' : genres.DETECTIVE,
-  'adventures' : genres.ADVENTURES,
-  'sci-fi' : genres.SCIFI,
+export const QuestTypeFromServer = {
+  'horror' : Genres.HORROR,
+  'mystic' : Genres.MYSTIC,
+  'detective' : Genres.DETECTIVE,
+  'adventures' : Genres.ADVENTURES,
+  'sci-fi' : Genres.SCIFI,
 };
 
-export const levelFromServer = {
+export const LevelFromServer = {
   'hard':'сложный',
   'medium':'средний',
   'easy': 'простой'

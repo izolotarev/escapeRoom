@@ -10,7 +10,7 @@ import { clearPostOrderStatus } from 'store/action-creators/actions';
 import { toast } from 'react-toastify';
 import { INITIAL_NUMBER_OF_PEOPLE, PHONE_NUMBER_PATTERN, PHONE_NUMBER_PATTERN_TITLE } from 'const/const';
 
-const BookingModal = ({ closePopupHandler }) => {
+const BookingModal = ({ onClosePopupClick }) => {
 
   const [order, setOrder] = useState({
     name: '',
@@ -85,7 +85,7 @@ const BookingModal = ({ closePopupHandler }) => {
   return (
     <S.BlockLayer>
       <S.Modal>
-        <S.ModalCloseBtn onClick={closePopupHandler}>
+        <S.ModalCloseBtn onClick={onClosePopupClick}>
           <IconClose width="16" height="16" />
           <S.ModalCloseLabel>Закрыть окно</S.ModalCloseLabel>
         </S.ModalCloseBtn>

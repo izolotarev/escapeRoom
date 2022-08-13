@@ -7,7 +7,7 @@ import { ReactComponent as IconScifi } from 'assets/img/icon-scifi.svg';
 import { ReactComponent as IconPerson } from 'assets/img/icon-person.svg';
 import { ReactComponent as IconPuzzle } from 'assets/img/icon-puzzle.svg';
 import * as S from './quests-catalog.styled';
-import { AppRoute, genres } from 'const/const';
+import { AppRoute, Genres } from 'const/const';
 import { useSelector } from 'react-redux';
 import { getQuestsInSelectedGenre, getSelectedGenre } from 'store/reducers/quests/quests-selectors';
 import { useDispatch } from 'react-redux';
@@ -33,17 +33,17 @@ const QuestsCatalog = () => {
 
   const renderGenreIcon = (genre) => {
     switch(genre) {
-      case genres.ALL:
+      case Genres.ALL:
         return <IconAllQuests />
-      case genres.ADVENTURES:
+      case Genres.ADVENTURES:
         return <IconAdventures />
-      case genres.HORROR:
+      case Genres.HORROR:
         return <IconHorrors />
-      case genres.MYSTIC:
+      case Genres.MYSTIC:
         return <IconMystic />
-      case genres.DETECTIVE:
+      case Genres.DETECTIVE:
         return <IconDetective />
-      case genres.SCIFI:
+      case Genres.SCIFI:
         return <IconScifi />
       default:
         return <IconAllQuests />
@@ -54,7 +54,7 @@ const QuestsCatalog = () => {
     <>
       <S.Tabs>
         {
-          Object.values(genres).map((genre) =>
+          Object.values(Genres).map((genre) =>
             <S.TabItem key={genre} onClick={handleGenreClick}>
               <S.TabBtn
                 isActive={ selectedGenre === genre }

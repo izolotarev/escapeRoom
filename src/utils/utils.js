@@ -1,4 +1,4 @@
-import { levelFromServer, questTypeFromServer } from 'const/const';
+import { LevelFromServer, QuestTypeFromServer } from 'const/const';
 
 export const adaptQuestToClient = (data) => {
   const adaptedItem = Object.assign(
@@ -14,11 +14,11 @@ export const adaptQuestToClient = (data) => {
 };
 
 const adaptQuestTypeToClient = (type) => {
-  return questTypeFromServer[type];
+  return QuestTypeFromServer[type];
 }
 
 const adaptLevelToClient = (level) => {
-  return levelFromServer[level];
+  return LevelFromServer[level];
 }
 
 const adaptPeopleCountToClient = (peopleCount) => {
