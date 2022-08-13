@@ -63,7 +63,6 @@ const BookingModal = ({ onClosePopupClick }) => {
       peopleCount: parseInt(evt.target.value, 10),
       isLegal,
     });
-    console.log(order);
   };
 
   const handleLegalChange = (evt) => {
@@ -73,7 +72,6 @@ const BookingModal = ({ onClosePopupClick }) => {
       peopleCount,
       isLegal: evt.target.checked,
     });
-    console.log(order);
   };
 
 
