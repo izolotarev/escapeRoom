@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { PageHeading as Heading } from 'components/common/common';
 import contactsBg from 'assets/img/contacts-bg.jpg';
+import 'leaflet/dist/leaflet.css';
 
 const Main = styled.main`
   display: flex;
@@ -87,6 +88,15 @@ const ContactsMapImage = styled.img`
   display: block;
 `;
 
+const ContactsMapInteractive = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+`;
+
 export {
   Main,
   ContentWrapper,
@@ -99,4 +109,5 @@ export {
   ContactLink,
   ContactsMap,
   ContactsMapImage,
+  ContactsMapInteractive,
 };

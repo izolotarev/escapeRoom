@@ -34,7 +34,7 @@ const BookingModal = ({ closePopupHandler }) => {
         isLegal: false
       });
       dispatch(clearPostOrderStatus());
-      toast.info(`Order was created`);
+      toast.info('Ваш заказ отправлен');
     }
   }, [isPostSuccessfull])
 
